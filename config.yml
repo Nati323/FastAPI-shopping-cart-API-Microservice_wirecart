@@ -1,0 +1,2 @@
+db:
+  url: "sqlite:///./shopping_cart_db.sqlite3"
