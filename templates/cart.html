@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Shopping Cart</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: .5em;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>User #{{ user_id }}'s Shopping Cart</h1>
+        <table>
+            <tr>
+                <th>Product #</th>
+                <th>Product Title</th>
+                <th>Product Price</th>
+            </tr>
+            {% for item in data %}
+                <tr>
+                    <td style="text-align:center;">{{ item.id }}</td>
+                    <td>{{ item.product_title }}</td>
+                    <td style="text-align:center;">${{ item.product_price }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </body>
+</html>
