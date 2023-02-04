@@ -1,6 +1,5 @@
-from fastapi import APIRouter, Depends, FastAPI, Request
+from fastapi import APIRouter, Depends, Request
 from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
 from dependency_injector.wiring import inject, Provide
 from .containers import Container
 from .services import ShoppingCartService
@@ -27,7 +26,6 @@ def get_cart_by_user_id_html(request: Request, user_id: int,
                    cart_service: ShoppingCartService =
                    Depends(Provide[Container.cart_service])):
     data = cart_service.get_cart_by_user_id(user_id)
-
     return templates.TemplateResponse("cart.html", {"request": request, "user_id": user_id, "data": data})
 
 @router.delete("/cart/user/{user_id}")
